@@ -1,0 +1,23 @@
+class Solution{
+    public:
+    int findClosest( int n, int k,int arr[]) 
+    { 
+        // Complete the function
+        int arr2[n];
+        for(int i=0;i<n;i++)
+        {
+            arr2[i]= (arr[i]-k)>0 ? arr[i]-k : k-arr[i];
+        }
+        int small =INT_MAX;
+        int ind =0;
+        for(int i=0;i<n;i++)
+        {
+            if(arr2[i]<=small)
+            {
+                small =arr2[i];
+                ind = i;
+            }
+        }
+        return arr[ind];
+    } 
+};
