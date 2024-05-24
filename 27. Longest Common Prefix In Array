@@ -1,0 +1,30 @@
+class Solution{
+  public:
+    
+    string longestCommonPrefix (string arr[], int N)
+    {
+        if (N == 0) return "-1";
+        string prefix = arr[0];
+    
+    for (int i = 1; i < N; ++i) {
+    
+        int length = std::min(prefix.size(), arr[i].size());
+        int j = 0;
+        
+        while (j < length && prefix[j] == arr[i][j]) {
+            ++j;
+        }
+        
+        prefix = prefix.substr(0, j);
+        
+        if (prefix.empty()) {
+            return "-1";
+        }
+    }
+    if(prefix.empty())
+    {
+        return "-1";
+    }
+    return prefix;
+    }
+};
