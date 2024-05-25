@@ -1,0 +1,34 @@
+class Solution
+{
+    public:    
+       vector <int> commonElements (int A[], int B[], int C[], int n1, int n2, int n3)
+        {
+            int start2= 0;
+            int start3= 0;
+            vector <int> ans;
+            int prev=0;
+            for(int i=0;i<n1;i++)
+            {
+                while(A[i]>B[start2] && start2<n2)
+                {
+                    start2++;
+                }
+                while(A[i]>C[start3] && start3<n3)
+                {
+                    start3++;
+                }
+                if(A[i] == B[start2] && A[i] == C[start3])
+                {
+                    if(A[i] !=prev)
+                    {
+                        ans.push_back(A[i]);
+                        prev = A[i];
+                    }
+                    start2++;
+                    start3++;
+                }
+            }
+            return ans;
+        }
+
+};
