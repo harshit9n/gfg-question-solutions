@@ -1,0 +1,22 @@
+class Solution
+{
+    public:
+    bool isFrequencyUnique(int n, int arr[])
+    {
+        unordered_map<int, int> frequencyMap;
+        
+        for (int i = 0; i < n; ++i) {
+            frequencyMap[arr[i]]++;
+        }
+
+        unordered_set<int> frequencySet;
+
+        for (const auto& entry : frequencyMap) {
+            if (!frequencySet.insert(entry.second).second) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+};
