@@ -1,0 +1,23 @@
+class Solution {
+  public:
+    void printTriangle(int n) {
+        // code here
+        int number = 64+n;
+        for(int i=1;i<=n;i++)
+        {
+            if(number == 64)
+            {
+                break;
+            }
+            int c = number;
+            for(int j=1;j<=i;j++)
+            {
+                char b = c;
+                cout<<b<<" ";
+                c--;
+            }
+            cout<<endl;
+        }
+        
+    }
+};
