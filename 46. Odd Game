@@ -1,0 +1,12 @@
+class Solution {
+  public:
+    long long oddGame(long long N) {
+        // code here
+        long long powerOfTwo = 1;
+        while (powerOfTwo * 2 <= N) {
+            powerOfTwo *= 2;
+        }
+        
+        return powerOfTwo;
+    }
+};
