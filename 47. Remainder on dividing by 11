@@ -1,0 +1,15 @@
+class Solution
+{
+
+public:
+    int xmod11(string x)
+    {
+       // code here
+       int m = x[0] - '0';  // Convert the first character to an integer
+    for (int i = 1; i < x.size(); i++) {
+        m = (m * 10 + (x[i] - '0')) % 11;  // Convert each character to integer and calculate modulus
+    }
+    return m;
+    
+    }
+};
