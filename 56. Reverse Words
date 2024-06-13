@@ -1,0 +1,31 @@
+class Solution
+{
+    public:
+    //Function to reverse words in a given string.
+    string reverseWords(string S) 
+    { 
+        // code here 
+        vector<std::string> words;
+        string word;
+        istringstream iss(S);
+        
+        // Split the string by '.'
+        while (getline(iss, word, '.')) {
+            words.push_back(word);
+        }
+        
+        // Reverse the vector of words
+        reverse(words.begin(), words.end());
+        
+        // Join the words with '.' separator
+        ostringstream oss;
+        for (size_t i = 0; i < words.size(); ++i) {
+            if (i != 0) {
+                oss << '.';
+            }
+            oss << words[i];
+        }
+        
+        return oss.str();
+    } 
+};
