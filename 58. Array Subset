@@ -1,0 +1,28 @@
+string isSubset(int a1[], int a2[], int n, int m) {
+    if (m == 0) return "Yes"; // if a2 is empty, it's a subset of a1
+
+    // HashMap to count occurrences of elements in a1 and a2
+    unordered_map<int, int> count1, count2;
+
+    // Count frequencies in a1
+    for (int i = 0; i < n; ++i) {
+        count1[a1[i]]++;
+    }
+
+    // Count frequencies in a2
+    for (int i = 0; i < m; ++i) {
+        count2[a2[i]]++;
+    }
+
+    // Check if a2 is subset of a1
+    for (auto it = count2.begin(); it != count2.end(); ++it) {
+        int element = it->first;
+        int freq2 = it->second;
+        
+        if (count1[element] < freq2) {
+            return "No";
+        }
+    }
+
+    return "Yes";
+}
