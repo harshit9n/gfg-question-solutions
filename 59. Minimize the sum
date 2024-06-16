@@ -1,0 +1,27 @@
+class Solution {
+public:
+    int minimizeSum(int N, vector<int> arr) {
+        // code here
+        priority_queue<int, std::vector<int>, std::greater<int>> minHeap(arr.begin(), arr.end());
+
+        int totalSum = 0;
+
+        // Continue until there's only one element in the heap
+        while (minHeap.size() > 1) {
+            // Extract the two smallest elements
+            int first = minHeap.top();
+            minHeap.pop();
+            int second = minHeap.top();
+            minHeap.pop();
+
+            // Compute their sum
+            int sum = first + second;
+            totalSum += sum;
+
+            // Add the sum back to the heap
+            minHeap.push(sum);
+        }
+
+        return totalSum;
+    }
+};
