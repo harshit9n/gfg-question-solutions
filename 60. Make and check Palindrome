@@ -1,0 +1,38 @@
+class Solution{
+public:
+    bool makePalindrome(int n,vector<string> &arr){
+    
+        unordered_map<string, int> freq;
+        
+        // Count the frequency of each string
+        for (const auto& str : arr) {
+            freq[str]++;
+        }
+        
+        // Check for valid pairs and middle palindromic string
+        bool hasMiddle = false;
+        
+        for (const auto& entry : freq) {
+            const string& str = entry.first;
+            string reversedStr = str;
+            reverse(reversedStr.begin(), reversedStr.end());
+            
+            if (str == reversedStr) {
+                // If the string is its own reverse, check if there's at most one such string
+                if (freq[str] % 2 != 0) {
+                    if (hasMiddle) {
+                        return false; // More than one string that can be in the middle
+                    }
+                    hasMiddle = true;
+                }
+            } else {
+                // Check if the string can pair with its reverse
+                if (freq[str] != freq[reversedStr]) {
+                    return false;
+                }
+            }
+        }
+        
+        return true;
+    }
+};
