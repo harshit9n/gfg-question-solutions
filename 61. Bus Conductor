@@ -1,0 +1,17 @@
+class Solution {
+  public:
+    int findMoves(int n, vector<int> chairs, vector<int> passengers) {
+        sort(chairs.begin(), chairs.end());
+        sort(passengers.begin(), passengers.end());
+        
+        // Initialize the total number of moves
+        int total_moves = 0;
+        
+        // Calculate the total number of moves needed
+        for (int i = 0; i < n; ++i) {
+            total_moves += std::abs(chairs[i] - passengers[i]);
+        }
+        
+        return total_moves;
+    }
+};
