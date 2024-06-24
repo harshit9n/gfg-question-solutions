@@ -1,0 +1,26 @@
+class Solution {
+  public:
+
+    vector<int> bracketNumbers(string str) {
+        // Your code goes here
+        vector<int> result;
+        stack<int> s;
+        int counter = 1;
+
+        for (char ch : str) {
+            if (ch == '(') {
+                // Push the current counter to the stack and append to the result
+                s.push(counter);
+                result.push_back(counter);
+                // Increment the counter for the next opening bracket
+                counter++;
+            } else if (ch == ')') {
+                // Pop from the stack and append to the result
+                result.push_back(s.top());
+                s.pop();
+            }
+        }
+
+        return result;
+    }
+};
